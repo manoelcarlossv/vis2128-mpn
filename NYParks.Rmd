@@ -1,0 +1,36 @@
+---
+title: "NYParks"
+author: "Manoel Pereira Neto"
+date: "9/6/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r load packages, message=FALSE}
+library(sf)
+library(tidyverse)
+library(ggspatial)
+library(ggthemes)
+```
+```{r read datasets, message=FALSE, results='hide', warning=FALSE}
+neighborhoods <-st_read("neighborhoods.geojson")
+parks <-st_read("parks.geojson")
+toilets <-st_read("ptoilets.csv")
+```
+```{r simple neighborhoods plot}
+neighborhoods_plot <- ggplot(neighborhoods) +
+  geom_sf()
+neighborhoods_plot
+```
+```{r simple parks plot}
+parks_plot <- ggplot(parks) +
+  geom_sf()
+parks_plot
+```
+```{r simple toilets plot}
+toilets_plot <- ggplot(toilets) +
+  geom_sf()
+toilets_plot
+```
